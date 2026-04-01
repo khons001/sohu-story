@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>把搜狐讲给朋友听</title>
+    <meta
+      name="description"
+      content="搜狐测试项目首页，以视频首屏呈现“把搜狐讲给朋友听”的开场氛围。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="home-page">
+    <main class="hero" aria-label="首页首屏">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          class="hero__poster"
+          src="./视频封面.jpg"
+          alt=""
+          decoding="async"
+        />
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="./视频封面.jpg"
+        >
+          <source src="./视频.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__overlay"></div>
+        <div class="hero__glow"></div>
+      </div>
+
+      <header class="hero__meta">
+        <a class="hero__brand" href="./index.html" aria-label="返回首页">
+          <span class="hero__brand-name">SOHU</span>
+          <span class="hero__brand-separator">/</span>
+          <span class="hero__brand-text">把搜狐讲给朋友听</span>
+        </a>
+      </header>
+
+      <nav class="hero__nav" aria-label="页面导航">
+        <a class="hero__nav-link is-current" href="./index.html" aria-current="page">
+          <span class="hero__nav-index">01</span>
+          <span class="hero__nav-label">首页</span>
+        </a>
+        <a class="hero__nav-link" href="./history.html">
+          <span class="hero__nav-index">02</span>
+          <span class="hero__nav-label">发展史</span>
+        </a>
+        <a class="hero__nav-link" href="./today.html">
+          <span class="hero__nav-index">03</span>
+          <span class="hero__nav-label">今日搜狐</span>
+        </a>
+        <a class="hero__nav-link" href="./expression.html">
+          <span class="hero__nav-index">04</span>
+          <span class="hero__nav-label">我的表达</span>
+        </a>
+        <a class="hero__nav-link" href="./closing.html">
+          <span class="hero__nav-index">05</span>
+          <span class="hero__nav-label">结语</span>
+        </a>
+        <a
+          class="hero__nav-link"
+          href="https://khons.xyz"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span class="hero__nav-index">06</span>
+          <span class="hero__nav-label">个人网站</span>
+        </a>
+        <button
+          class="hero__nav-link hero__nav-link--more"
+          type="button"
+          data-more-trigger
+          aria-haspopup="dialog"
+          aria-expanded="false"
+          aria-controls="more-card"
+        >
+          <span class="hero__nav-index">07</span>
+          <span class="hero__nav-label">更多</span>
+        </button>
+      </nav>
+
+      <section class="hero__content" aria-labelledby="hero-title">
+        <p class="hero__eyebrow">SOHU STORY</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__title-line">把搜狐</span>
+          <span class="hero__title-line hero__title-line--accent">讲给朋友听</span>
+        </h1>
+      </section>
+
+      <div class="more-card" id="more-card" role="dialog" aria-modal="false" aria-hidden="true">
+        <button class="more-card__close" type="button" data-more-close aria-label="关闭更多卡片">
+          ×
+        </button>
+        <span class="more-card__tag">More</span>
+        <p class="more-card__text">这是另外的价钱</p>
+      </div>
+
+      <div
+        class="more-card more-card--plea"
+        id="plea-card"
+        role="dialog"
+        aria-modal="false"
+        aria-hidden="true"
+      >
+        <span class="more-card__tag">Wait</span>
+        <p class="more-card__text">老师求你了，给个机会！</p>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
