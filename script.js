@@ -5,6 +5,19 @@ const moreCard = document.querySelector(".more-card");
 const moreClose = document.querySelector("[data-more-close]");
 const pleaCard = document.querySelector(".more-card--plea");
 
+const prefetchedPages = new Set();
+
+const prefetchPage = (url) => {
+  if (!url || prefetchedPages.has(url)) return;
+  prefetchedPages.add(url);
+
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.as = "document";
+  link.href = url;
+  document.head.appendChild(link);
+};
+
 if (hero && video) {
   const markReady = () => hero.classList.add("is-video-ready");
 
@@ -68,4 +81,33 @@ if (moreTrigger && moreCard) {
       setPleaState(false);
     }
   });
+}
+
+const internalPageLinks = Array.from(document.querySelectorAll("a[href$='.html']"))
+  .map((link) => link.getAttribute("href"))
+  .filter(Boolean);
+
+for (const href of internalPageLinks) {
+  prefetchPage(href);
+}
+
+for (const link of document.querySelectorAll("a[href$='.html']")) {
+  const href = link.getAttribute("href");
+  if (!href) continue;
+
+  link.addEventListener(
+    "pointerenter",
+    () => {
+      prefetchPage(href);
+    },
+    { once: true }
+  );
+
+  link.addEventListener(
+    "touchstart",
+    () => {
+      prefetchPage(href);
+    },
+    { once: true, passive: true }
+  );
 }
