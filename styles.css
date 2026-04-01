@@ -508,16 +508,19 @@ video {
 .visual-card img,
 .visual-strip img {
   width: 100%;
-  object-fit: cover;
   background: var(--color-paper-strong);
 }
 
 .visual-card img {
-  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: auto;
 }
 
 .visual-strip img {
-  aspect-ratio: 16 / 7;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: auto;
 }
 
 .visual-card__caption,
@@ -971,7 +974,8 @@ video {
 
   .visual-card img,
   .visual-strip img {
-    aspect-ratio: 4 / 3;
+    height: auto;
+    aspect-ratio: auto;
   }
 }
 
